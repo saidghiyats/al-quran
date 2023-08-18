@@ -6,7 +6,7 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import FavoriteButton from '../atoms/FavoriteButton';
 
-export default function SurahCard({ id, name_simple, verses_count, translated_name,href }: any) {
+export default function SurahCard({ id, name_simple, verses_count, translated_name, href }: any) {
    return (
       <Card
          as={'div'}

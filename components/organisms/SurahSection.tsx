@@ -5,7 +5,9 @@ import Juzs from './Juzs';
 
 export default function SurahSection({ chapters, juzs }: any) {
    return (
-      <Tabs aria-label='Options'>
+      <Tabs
+         aria-label='Options'
+         classNames={{ panel: 'mt-2' }}>
          <Tab
             key='surahs'
             title='Surah'>
