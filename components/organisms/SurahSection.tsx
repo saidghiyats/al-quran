@@ -2,7 +2,7 @@
 import { Tabs, Tab, Card } from '@nextui-org/react';
 import Juzs from './Juzs';
 import dynamic from 'next/dynamic';
-import SurahsSkeleton from '../skeleton/Surahs';
+import SurahsSkeleton from '../skeleton/SurahsSkeleton';
 
 const Surahs = dynamic(() => import('../organisms/Surahs'), {
    loading: () => <SurahsSkeleton />,
@@ -16,6 +16,7 @@ export default function SurahSection({ chapters, juzs }: any) {
          <Tab
             key='surahs'
             title='Surah'>
+            {/* <SurahsSkeleton /> */}
             <Surahs chapters={chapters} />
          </Tab>
          <Tab
