@@ -3,12 +3,12 @@ import SurahCard from '../molecules/SurahCard';
 
 export default function Juzs({ juzs, chapters }: any) {
    return (
-      <section className='columns-1 sm:columns-2 md:columns-3 overflow-hidden'>
+      <section className='columns-1 md:columns-2 lg:columns-3 overflow-hidden'>
          {juzs.map((juz: any) => (
             <>
                <Card
                   radius='sm'
-                  className='bg-default-100 shadow-none mb-4'
+                  className='bg-default-50 shadow-none mb-4'
                   key={juz.id}>
                   <CardHeader className='px-4 flex justify-between text-sm'>
                      <span>{juz.juz_number}</span>
@@ -31,6 +31,7 @@ export default function Juzs({ juzs, chapters }: any) {
                               verses_count={matchingChapter?.verses_count}
                               translated_name={matchingChapter?.translated_name.name}
                               href={`/${chapter}/${verses}`}
+                              classNames={{ base: 'bg-background' }}
                            />
                         );
                      })}

@@ -1,22 +1,27 @@
 'use client';
-import { Tabs, Tab, Card } from '@nextui-org/react';
-import Juzs from './Juzs';
+import { Tabs, Tab } from '@nextui-org/react';
+// import Surahs from './Surahs';
+// import Juzs from './Juzs';
 import dynamic from 'next/dynamic';
-import SurahsSkeleton from '../skeleton/SurahsSkeleton';
+import SurahSkeleton from '../skeleton/SurahSkeleton';
+import JuzSkeleton from '../skeleton/JuzSkeleton';
 
 const Surahs = dynamic(() => import('../organisms/Surahs'), {
-   loading: () => <SurahsSkeleton />,
+   loading: () => <SurahSkeleton />,
+});
+const Juzs = dynamic(() => import('../organisms/Juzs'), {
+   loading: () => <JuzSkeleton />,
 });
 
 export default function SurahSection({ chapters, juzs }: any) {
    return (
       <Tabs
+         radius='sm'
          aria-label='Options'
          classNames={{ panel: 'mt-2' }}>
          <Tab
             key='surahs'
             title='Surah'>
-            {/* <SurahsSkeleton /> */}
             <Surahs chapters={chapters} />
          </Tab>
          <Tab

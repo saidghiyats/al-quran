@@ -9,7 +9,7 @@ interface SectionTitleProps {
 
 export default function SectionTitle({ title, description }: SectionTitleProps) {
    return (
-      <div className='px-2 w-full'>
+      <div className='w-full'>
          <div className='space-y-1'>
             <h4 className='text-medium font-medium'>{title}</h4>
             {description && <p className='text-small text-default-400'>{description}</p>}
