@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Tooltip } from '@nextui-org/react';
 import { HeartIcon } from '../icons';
 import clsx from 'clsx';
-import useFavorite from '@/utils/useFavorite';
+import { FavoriteContext } from '@/context/FavoriteContext';
 
 interface FavoriteButtonProps {
    id: number;
 }
 
 export default function FavoriteButton({ id }: FavoriteButtonProps) {
-   const { favorite, handleFavorite } = useFavorite();
+   const { favorite, handleFavorite } = useContext(FavoriteContext);
    return (
       <Tooltip
          content={favorite.find((x: any) => x === id) ? 'Hapus favorit' : 'Tambah favorit'}
