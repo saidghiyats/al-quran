@@ -1,22 +1,23 @@
-import SurahCard from '../molecules/SurahCard';
+import { Chapter } from "@/types";
+import SurahCard from "../molecules/SurahCard";
 
-export default function Surahs({ chapters }: any) {
-   return (
-      <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-         {chapters ? (
-            chapters.map((chapter: any) => (
-               <SurahCard
-                  key={chapter.id}
-                  id={chapter.id}
-                  name_simple={chapter.name_simple}
-                  verses_count={chapter.verses_count}
-                  translated_name={chapter.translated_name.name}
-                  href={`/${chapter.id}`}
-               />
-            ))
-         ) : (
-            <h3>Loading...</h3>
-         )}
-      </section>
-   );
+interface SurahsProps {
+  chapters: Chapter[];
+}
+export default function Surahs({ chapters }: SurahsProps) {
+  return (
+    <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {chapters &&
+        chapters.map((chapter) => (
+          <SurahCard
+            key={chapter.number}
+            number={chapter.number}
+            transliterationId={chapter.name.transliteration.id}
+            numberOfVerses={chapter.numberOfVerses}
+            translationId={chapter.name.translation.id}
+            href={`/${chapter.number}`}
+          />
+        ))}
+    </section>
+  );
 }

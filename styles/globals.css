@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+::-webkit-scrollbar{
+    @apply w-[6px]
+}
+
+::-webkit-scrollbar-thumb{
+    @apply bg-default rounded-md hover:bg-default-400
+}

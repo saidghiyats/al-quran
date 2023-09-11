@@ -1,11 +1,10 @@
-import { Verse } from "@/types";
+import { Verses } from "@/types";
 
-export async function getVersesByChapter(id: string, page: number) {
-  const perPage = 10;
+export async function getVersesByChapter(chapter: string): Promise<Verses> {
   const res = await fetch(
-    `https://api.quran.com/api/v4/verses/by_chapter/${id}?language=id&words=true&page=${page}&per_page=${perPage}`
+    `${process.env.NEXT_PUBLIC_API_KEY}/surah/${chapter}`
   );
   const data = await res.json();
 
-  return data.verses;
+  return data.data as Verses;
 }

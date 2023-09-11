@@ -1,6 +1,7 @@
-export async function getListChapters() {
-   const res = await fetch('https://api.quran.com/api/v4/chapters?language=id');
-   const data = await res.json();
+import { Chapter } from "@/types";
 
-   return data.chapters;
+export async function getListChapters(): Promise<Chapter> {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_KEY}/surah/`);
+  const data = await res.json();
+  return data.data as Chapter;
 }

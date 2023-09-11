@@ -1,23 +1,20 @@
-import { fetchVerses } from "@/actions/fetchVerses";
-import LoadMore from "@/components/atoms/LoadMore";
+import SurahInfo from "@/components/molecules/SurahInfo";
 import VerseCard from "@/components/molecules/VerseCard";
-import { getChapter } from "@/lib/getChapter";
+import VerseSection from "@/components/organisms/VerseSection";
+import { surahName, uthmaniHafs } from "@/config/fonts";
+import { getVersesByChapter } from "@/lib/getVersesByChapter";
+import clsx from "clsx";
 import React from "react";
 
-export default async function Verse({
+export default async function Chapter({
   params: { id },
 }: {
   params: { id: string };
 }) {
-  const verses = await fetchVerses(id, 1);
-  const chapter = await getChapter(id);
-
+  const verses = await getVersesByChapter(id);
   return (
-    <div>
-      <div className="flex flex-col gap-4">
-        {verses && verses.map((item: any) => <VerseCard verses={item} />)}
-      </div>
-      <LoadMore id={id} lastVerse={verses} verseCount={chapter.verses_count} />
-    </div>
+    <>
+      <VerseSection verses={verses} />
+    </>
   );
 }

@@ -1,44 +1,50 @@
-import { Card, CardBody, CardHeader, Link, Divider } from '@nextui-org/react';
-import SurahCard from '../molecules/SurahCard';
+import { Card, CardBody, CardHeader, Link, Divider } from "@nextui-org/react";
+import SurahCard from "../molecules/SurahCard";
+import { Chapter, Juzs } from "@/types";
 
-export default function Juzs({ juzs, chapters }: any) {
-   return (
-      <section className='columns-1 md:columns-2 lg:columns-3 overflow-hidden'>
-         {juzs.map((juz: any) => (
-            <>
-               <Card
-                  radius='sm'
-                  className='bg-default-50 shadow-none mb-4'
-                  key={juz.id}>
-                  <CardHeader className='px-4 flex justify-between text-sm'>
-                     <span>{juz.juz_number}</span>
-                     <Link
-                        color='foreground'
-                        underline='hover'
-                        href={`/juz/${juz.juz_number}`}>
-                        Baca
-                     </Link>
-                  </CardHeader>
-                  <Divider />
-                  <CardBody className='flex flex-col gap-4 p-4'>
-                     {Object.entries(juz.verse_mapping).map(([chapter, verses]: any) => {
-                        const matchingChapter = chapters.find((x: any) => x.id == chapter);
-                        return (
-                           <SurahCard
-                              key={chapter}
-                              id={matchingChapter?.id}
-                              name_simple={matchingChapter?.name_simple}
-                              verses_count={matchingChapter?.verses_count}
-                              translated_name={matchingChapter?.translated_name.name}
-                              href={`/${chapter}/${verses}`}
-                              classNames={{ base: 'bg-background' }}
-                           />
-                        );
-                     })}
-                  </CardBody>
-               </Card>
-            </>
-         ))}
-      </section>
-   );
+interface JuzsProps {
+  juzs: Juzs[];
+}
+
+export default function Juzs({ juzs }: JuzsProps) {
+  return (
+    <section className="columns-1 md:columns-2 lg:columns-3 overflow-hidden">
+      {juzs &&
+        juzs.map((juz) => (
+          <>
+            <Card
+              radius="sm"
+              className="bg-default-100 mb-4 border-none shadow-none"
+              key={juz.number}
+            >
+              <CardHeader className="px-4 pb-0 flex justify-between [&>*]:text-sm">
+                <span>Juz {juz.number}</span>
+                <Link
+                  color="foreground"
+                  underline="hover"
+                  href={`/juz/${juz.number}`}
+                >
+                  Baca
+                </Link>
+              </CardHeader>
+              <CardBody className="flex flex-col gap-4 p-4">
+                {juz.juzs.map((chapter: Chapter) => {
+                  return (
+                    <SurahCard
+                      key={chapter.number}
+                      number={chapter.number}
+                      transliterationId={chapter.name.transliteration.id}
+                      numberOfVerses={chapter.numberOfVerses}
+                      translationId={chapter.name.translation.id}
+                      href={`/${chapter.number}/${chapter.rangeOfVerses}`}
+                      classNames={{ base: "shadow-none" }}
+                    />
+                  );
+                })}
+              </CardBody>
+            </Card>
+          </>
+        ))}
+    </section>
+  );
 }
