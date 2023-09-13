@@ -1,4 +1,3 @@
-"use client";
 import "@/styles/globals.css";
 import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
@@ -6,8 +5,6 @@ import { fontSans } from "@/config/fonts";
 import { Providers } from "./providers";
 import clsx from "clsx";
 import { Header } from "@/components/organisms/Header";
-import FavoriteProvider from "@/context/FavoriteContext";
-import { Link } from "@nextui-org/react";
 
 export const metadata: Metadata = {
   title: {
