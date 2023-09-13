@@ -10,9 +10,9 @@ import {
   Button,
   Tab,
   Tabs,
-  ScrollShadow as ScrollShadow,
   RadioGroup,
 } from "@nextui-org/react";
+import { ScrollShadow } from "@nextui-org/scroll-shadow";
 
 interface ModalAddBookmarkProps {
   isOpen: boolean;
