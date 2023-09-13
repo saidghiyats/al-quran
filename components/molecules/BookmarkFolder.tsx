@@ -10,7 +10,7 @@ import {
   Button,
   Tab,
   Tabs,
-  ScrollShadow,
+  ScrollShadow as ScrollShadow,
   RadioGroup,
 } from "@nextui-org/react";
 
