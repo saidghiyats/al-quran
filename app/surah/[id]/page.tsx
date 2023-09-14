@@ -3,7 +3,6 @@ import VerseCard from "@/components/molecules/VerseCard";
 import VerseSection from "@/components/organisms/VerseSection";
 import { surahName, uthmaniHafs } from "@/config/fonts";
 import { getVersesByChapter } from "@/lib/getVersesByChapter";
-import clsx from "clsx";
 import React from "react";
 
 export default async function Chapter({

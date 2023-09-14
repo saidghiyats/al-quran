@@ -28,7 +28,7 @@ export default function Juzs({ juzs }: JuzsProps) {
                 </Link>
               </CardHeader>
               <CardBody className="flex flex-col gap-4 p-4">
-                {juz.juzs.map((chapter: Chapter) => {
+                {juz.chapters?.map((chapter: Chapter) => {
                   return (
                     <SurahCard
                       key={chapter.number}
@@ -36,7 +36,7 @@ export default function Juzs({ juzs }: JuzsProps) {
                       transliterationId={chapter.name.transliteration.id}
                       numberOfVerses={chapter.numberOfVerses}
                       translationId={chapter.name.translation.id}
-                      href={`/${chapter.number}/${chapter.rangeOfVerses}`}
+                      href={`/surah/${chapter.number}/${chapter.key}`}
                       classNames={{ base: "shadow-none" }}
                     />
                   );

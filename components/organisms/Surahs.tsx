@@ -15,7 +15,7 @@ export default function Surahs({ chapters }: SurahsProps) {
             transliterationId={chapter.name.transliteration.id}
             numberOfVerses={chapter.numberOfVerses}
             translationId={chapter.name.translation.id}
-            href={`/${chapter.number}`}
+            href={`/surah/${chapter.number}`}
           />
         ))}
     </section>

@@ -15,11 +15,18 @@ export interface Chapter {
   };
   preBismillah?: null | PreBismillah;
   rangeOfVerses?: string;
+  key?: string;
 }
 
 export interface Juzs {
   number: number;
-  juzs: Chapter[];
+  chapters: Chapter[];
+}
+
+export interface Juz {
+  number: number;
+  totalAyah: number;
+  chapters: Verse[];
 }
 
 export interface PreBismillah {
